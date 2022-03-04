@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="style2.css" type="text/css">
+    <script type="javascrpt/text" src="joinn.js"></script>
+    <title>Login Page</title>
+</head>
+<body>
+    <section>
+    <div class="image">
+    <div class="image-camera">
+        <img src="cameraman.png">  
+    </div>
+    </div>
+     
+              <div class="fullscreen">
+        <div class="formscreen">
+           <div class="welcome">
+               <h3>Welcome to <div class="photo"> PHOTO CONTEST</div></h3>
+           </div>
+            
+                <form action="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
+              <div class="Group">
+                  <label>First Name</label>
+                  <input type="text" name="fname" class="formerror" autocomplete="off" required>
+              </div> 
+              <div class="Group">
+                <label>Last Name</label>
+                <input type="text" name="lname" class="formerror" autocomplete="off" required>
+            </div> 
+              <div class="Group">
+                <label>Email</label>
+                <input type="email" name="Email" class="formerror" autocomplete="off" required>
+            </div> 
+
+              <div class="Group">
+                  <label>Password</label>
+                 <input type="password" name="psw" class="formerror" maxlength="8" required>
+              </div> 
+              <div class="Group">
+                <label>Confirm Password</label>
+               <input type="password" name="cpsw" class="formerror" maxlength="8" required>
+            </div> 
+               
+              <button type="submit" class="submit">
+                      SUBMIT
+              </button>
+
+        
+              </div>
+            
+        </div>
+    </div>
+        
+        
+</form>
+    </section>
+    
+
+    
+          
+    
+              
+</body>
+</html>

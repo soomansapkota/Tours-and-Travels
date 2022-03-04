@@ -1,0 +1,110 @@
+*{
+    margin:0;
+    box-sizing:border-box;
+    padding: 0px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+   
+}
+body{
+    background: linear-gradient(189deg,rgb(224, 229, 233),rgb(18, 129, 204));
+    
+}
+section{
+    position:relative;
+    width:100%;
+    height:100vh;
+    display:flex;
+}
+section .image{
+    position: relative;
+    display: flex;
+    width:45%;
+    height:100%;
+   
+}
+section .image img
+{
+    position: relative; 
+    display: flex;
+    max-width: 100%;
+    max-height: 100%;
+    padding-top: 10rem;
+    padding-left: 4vw;
+    object-fit: contain; 
+    padding-bottom: 10rem;
+}
+.photo
+{
+    color:rgb(54, 44, 44);
+}
+section .fullscreen{
+
+display:flex;
+justify-content: center;
+align-items: center;
+width:50%;
+height:100%;
+}
+
+.formscreen{
+    
+    display:flex;
+    flex-direction: column;
+    background-color: rgba(114, 153, 226, 0.7);
+    border-radius: 10px;
+    width:80%;
+    max-width:400px;
+}
+.welcome{
+    color: cornsilk;
+    text-align: center;
+    margin-bottom: 5vh;
+    font-size: 1.6em;
+    font-weight: normal;
+}
+
+.Group{
+   display:flex;
+   flex-direction: column;
+   margin: 20px;  
+}
+.Group label{
+    color:rgb(0, 0, 0);
+    margin-bottom:5px;
+}
+.Group input{
+    font-size: 20px;
+    padding:10px 5px;
+    background-color: rgba(96, 141, 155, 0.7);
+    border:2px solid rgb(180, 181, 202);
+    color: whitesmoke;
+    border-radius: 20px;
+}
+.submit{
+    padding: 15px 0px;
+    width: 90%;
+    background-color:rgb(125, 156, 180, 0.5);
+    border: 2px solid wheat ;
+    color:white;
+    align-items: center;
+    margin:2vw;
+    font-size: 1em;
+}
+.submit:hover{
+    background-color:rgb(177, 165, 150, 0.5);
+}
+.submit:focus{
+    background-color: rgb(134, 123, 77, 0.5);
+}
+.Group input:focus{
+    outline: 1px solid white;
+}
+.remember{
+
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;  
+}
+    
+
+
