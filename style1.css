@@ -10,6 +10,7 @@ body{
     
 }
 section{
+    
     position:relative;
     width:100%;
     height:100vh;
@@ -17,21 +18,19 @@ section{
 }
 section .image{
     position: relative;
-    display: flex;
-    width:45%;
-    height:100%;
+    width:100%;
+    height:100vh;
    
 }
 section .image img
 {
-    position: relative; 
-    display: flex;
-    max-width: 100%;
-    max-height: 100%;
-    padding-top: 10rem;
-    padding-left: 4vw;
-    object-fit: contain; 
-    padding-bottom: 10rem;
+    position: absolute; 
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+
 }
 .photo
 {
@@ -42,7 +41,7 @@ section .fullscreen{
 display:flex;
 justify-content: center;
 align-items: center;
-width:50%;
+width: 50%;
 height:100%;
 }
 
@@ -112,6 +111,24 @@ height:100%;
     justify-content: center;
     padding-bottom: 20px;
     
+}
+
+@media(max-width:768px)
+{
+    section .image{
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+    }
+    .formscreen{
+        position:relative;
+        display:flex;
+        top:0;
+        left:50%;
+        width:100%;
+    }
 }
     
 
