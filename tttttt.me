@@ -1,0 +1,275 @@
+}
+    @media (min-width: 768px) and (max-width: 991px)
+     {
+      .homepage-image .text-bg h1 {
+        font-size: 49px;
+        padding-bottom: 6px;
+        line-height: 60px;
+        margin-top: 115px;
+    }
+     }
+     @media (min-width: 992px) and (max-width: 1199px)
+    {
+      .homepage-image .text-bg h1 {
+        padding-bottom: 6px;
+        padding-top: 25px;
+        margin-top: 38px;
+        font-size: 71px;
+        line-height: 76px;
+    }
+
+    }
+    
+
+
+
+  <?php
+  require_once('./dbcon.php');
+session_start();
+
+
+if (isset($_POST['submit']))
+{
+    
+    $firstname= mysqli_real_escape_string($conn, $_POST['fname']);
+    $lastname=mysqli_real_escape_string($conn, $_POST['lname']);
+    $email=mysqli_real_escape_string($conn, $_POST['Email']);
+    $password=mysqli_real_escape_string($conn, $_POST['psw']);
+    $conpassword=mysqli_real_escape_string($conn, $_POST['cpsw']);
+    $pass=password_hash($password,PASSWORD_BCRYPT);
+    $cpass=password_hash($conpassword,PASSWORD_BCRYPT);
+
+
+$emailquery="SELECT * FROM register where email='$email'";
+$query=mysqli_query($conn,$emailquery);
+
+$emailcount=mysqli_num_rows($query);
+
+if($emailcount>0)
+{
+    echo"Email already exist";
+}
+else
+{
+    if($password===$conpassword)
+    {
+        $insertquery="INSERT INTO register (fname, lname, Email, psw, cpsw) values('$firstname','$lastname','$email','$pass','$cpass') ";
+
+        $iquery=mysqli_query($conn,$insertquery);
+
+       if($iquery)
+        {
+            echo"Insertion successfull";
+            header('location:login.php');   
+        }
+         else
+        {
+            die(mysqli_error($conn));
+        }
+
+    }
+    else {
+        echo"Password doesnot matched";
+    }
+}
+}
+// $_SESSION();
+
+
+?>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"  href="style1.css" type="text/css">
+    <script type="javascrpt/text" src="joinn.js"></script>
+    <title>Login Page</title>
+</head>
+<body>
+<?php
+  include 'header.php';
+  ?> 
+    <section>
+    
+    <div class="image image-camera">
+       <img src="travel.jpg"> 
+
+    </div>
+     
+              <div class="fullscreen">
+        <div class="formscreen">
+           <div class="welcome">
+               <h3>Welcome to <div class="photo"> Let's go travels</div></h3>
+           </div>
+            
+                <form action="login.php" name="myForm" method="post">
+              <div class="Group">
+                  <label>Email</label>
+                  <input type="email" name="Email" class="formerror" autocomplete="off" required>
+              </div> 
+              <div class="Group">
+                  <label>Password</label>
+                 <input type="password" name="password" class="formerror" maxlength="8" required>
+              </div> 
+               
+              <button type="submit" name="submit" class="login">
+                      SIGN UP
+              </button>
+                     
+              
+
+        <div class="remember">
+            <input type="checkbox" name="remember" id="remember">
+                    Remember me
+        </div>
+
+        <div class="forget" >
+           <a href="sign_up.php"> If you haven't account yet</a> 
+        </div>
+              </div>
+            
+        </div>
+    </div>
+        
+        
+</form>
+    </section>
+    
+<?php
+
+require_once('./dbcon.php');
+session_start();
+
+
+if (isset($_POST['Email']))
+{
+    
+    $email=mysqli_real_escape_string($conn, $_POST['Email']);
+    $pass=mysqli_real_escape_string($conn, $_POST['psw']);
+    
+    $emailquery="SELECT * FROM register where Email='$email' && psw='$password'";
+    $query=mysqli_query($conn,$emailquery);
+
+$num=mysqli_num_rows($query);
+
+if($num==1)
+{ 
+    while ($row=mysqli_fetch_assoc($query))
+    {
+    if (password_verify('$pass', $row['password']))
+     {
+        echo"You have succesfully login";  
+     }
+    
+    else
+    {
+    echo"You haven't login";
+    }
+    }
+
+}
+// $_SESSION();
+
+
+
+
+
+if(isset($_SESSION['aid']))
+{
+	header("location:ahome.php");
+}
+$e=mysqli_real_escape_string($al, $_POST['aid']);
+$p=mysqli_real_escape_string($al, $_POST['pass']);
+if($_POST['aid']!=NULL && $_POST['pass']!=NULL)
+{
+	$pp=sha1($p);
+	$sql=mysqli_query($al, "SELECT * FROM admin WHERE aid='$e' AND password='$pp'");
+	if(mysqli_num_rows($sql)==1)
+	{
+		$_SESSION['aid']=$e;
+		header("location:ahome.php");
+	}
+	else
+	{
+		$info="Incorrect Admin ID or Password";
+	}
+}
+?>
+</body>
+</html>
+  <nav class="navbar"> 
+        
+    
+         <ul class="menu">
+            <div class="logo">
+                <img src="travel.gif" width="90px" height="50px" >
+                
+             </div>
+         <li><a href="projects.php">HOME</a></li>
+         <li><a href="book.php">BOOK NOW</a></li>
+         <li><a href="contact.html">CONTACT</a></li>
+         <li><a href="login.php">LOGIN</a></li>
+         </ul>
+
+    </nav>
+
+    <section class="aboutus" id="aboutus">
+        <span class="about" style="text-decoration:underline;">About us:</span><br>
+        ‘Lets go Travels’<br>
+        <span class="travel" style="color:black">
+        “Travel is the main thing you purchase that makes you more extravagant”. We, at ‘Lets go Travels’, swear by this and put stock in satisfying travel dreams that make you perpetually rich constantly.
+        We have been moving excellent encounters for a considerable length of time through our cutting-edge planned occasion bundles and other fundamental travel administrations. We rouse our clients to carry on with a rich life, brimming with extraordinary travel encounters.
+        </span>
+       </section>
+
+        <section class="contact" id="contact">
+    
+                <div class="content">
+                  <div class="left box">
+                    <div class="upper">
+                      <div class="topic" style="text-decoration: underline;">CONTACT US:</div>
+                      <div class="phone">
+                        <a href="#"><i class="fas fa-phone-volume"></i> +983 333 3838</a>
+                      </div>
+                      <div class="email">
+                        <a href="#"><i class="fas fa-envelope"></i>letsgotravels@gmail.com</a>
+                      </div>
+                    </div>
+                    <div class="lower">
+                      <div class="topic" style="text-decoration: underline;">ZIP-CODE:</div>
+                      <div class="zip" style="text-decoration:double; color:aliceblue;">
+                        44600
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="middle box">
+                    <div class="topic" style="text-decoration: underline;">BRANCHES : </div>
+                    <div><a href="#">MILAN CHOWK , BUTWAL</a></div>
+                    <div><a href="#">SAJAN CHOWK , BIRATNAGAR</a></div>
+                    <div><a href="#">SAURAHA CHOWK , CHITWAN</a></div>
+                    <div><a href="#">HALLAN CHOWK , POKHARA</a></div>
+                    <div><a href="#">BALKUMARI , KATHMANDU</a></div>
+                  </div>
+                <div class="bottom">
+                  <p>Copyright © 2020 <a href="#">TeamSuman</a> All rights reserved</p>
+                </div>
+              
+        </section>
+        

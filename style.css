@@ -1,17 +1,29 @@
 *{
     margin: 0;
     padding:0;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:Sans-serif;
+    text-decoration: none;
    
 }
 *{
     scroll-behavior: smooth;
+}
+body{
+    background-color: linear-gradient(rgb(113, 205, 233),rgb(46, 84, 110));
+
 }
 
 
 .navbar a{
     text-decoration: none;
     
+}
+
+.navbar {
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    background-color:#314c7a;
 }
 .menu {
     display:flex;
@@ -61,7 +73,7 @@ ul{
     padding-left: 20px;
     min-width: 1vw;
 }
-#products{
+#aboutus{
 height: 100vh;
     color:black;
     font-weight: bolder;
@@ -73,7 +85,7 @@ height: 100vh;
     background:linear-gradient(189deg,rgb(198, 224, 240),rgb(67, 175, 218));
 }
 #contact{
-    height: 100vh;
+       height: 38vh;
         color:black;
         font-weight: bolder;
         display:flex;
@@ -90,19 +102,92 @@ height: 100vh;
         background:linear-gradient(189deg,rgb(198, 224, 240),rgb(67, 175, 218));
         align-items:center;
     }
-    .homepage-image{
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    img {
+      border-style: none;
+    }
+    img {
+      vertical-align: middle;
+      border-style: none;
+    }
+  
+    
+    
+
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+
+    #contact{
+        height:200px;  
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        background: rgb(165, 126, 126);
+      }
+      #contact .content{
+        max-width: 1350px;
+        margin: auto;
+        padding: 20px;
         display: flex;
-        width: 50vw;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      #contact .content a{
+        color: #fff;
+      }
+      
+      .bottom{
+          display: flex;
+          align-items:flex-end;
+      }
+      
+      
+      
+    #contact .content .middle{
+        padding-left: 80px;
+      }
+       #contact .content .middle a{
+        line-height: 32px;
+      }
+      
+      
+      
+      
+      
+      
+      @media (max-width:950px){
+        footer .content .box{
+          width: 50%;
+        }
+        .content .right{
+          margin-top: 40px;
+        }
+      }
+      @media (max-width:560px){
+        footer{
+          position: relative;
+        }
+        footer .content .box{
+          width: 100%;
+          margin-top: 30px;
+        }
+        footer .content .middle{
+          padding-left: 0;
+        }
+      }
+      @media (min-width: 576px) and (max-width: 767px)
+      {
+      .homepage-image .text-bg h1 {
 
-        padding-top:100px;
-        padding-left:200px;
-
+        font-size: 33px;
+        line-height: 39px;
+      }
     }
-    .jam{
-        font-size:40px;
-        padding:100px;
-        
-    }
-   
-
+    
     

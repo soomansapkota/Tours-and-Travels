@@ -113,6 +113,13 @@ height:100%;
     
 }
 
+.forget
+{
+    display: flex;
+    justify-content: center;
+    padding: 20px;  
+}
+
 @media(max-width:768px)
 {
     section .image{

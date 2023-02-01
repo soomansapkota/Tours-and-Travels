@@ -1,24 +1,13 @@
 <?php
+$server = "localhost";
+$username = "root";
+$password = "";
+$database="project";
+// Create connection
+$conn = mysqli_connect($server, $username, $password,$database);
+// Check connection
+if (!$conn) {
+ echo "connecton failed";
+} 
 
-$server="localhost";
-$user="root";
-$password="";
-$db="signup"
-$conn=mysqli_connect($server,$user,$password,$db);
-
-if($conn)
-{
-    ?>
-    <script>
-alert("Connection is Successfull")
-    </script>
-    <?php
-}else{
-    ?>
-    <script>
-    alert("Connection is failed");
-    </script>
-    <?php
-}
-}
 ?>

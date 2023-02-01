@@ -206,3 +206,180 @@ body{
         color:rgb(20, 87, 53);
         
     }
+
+
+
+    <!-- <?php
+session_start();
+
+
+if (isset($_POST['SUBMIT']))
+{
+    include 'dbcon.php';
+    $firstname= mysqli_real_escape_string($conn, $_POST['fname']);
+    $lastname=mysqli_real_escape_string($conn, $_POST['lname']);
+    $email=mysqli_real_escape_string($conn, $_POST['Email']);
+    $password=mysqli_real_escape_string($conn, $_POST['psw']);
+    $conpassword=mysqli_real_escape_string($conn, $_POST['cpsw']);
+    $pass=password_hash($password,PASSWORD_BCRYPT);
+    $cpass=password_hash($conpassword,PASSWORD_BCRYPT);
+
+$emailquery="select * from registration where firstname='$firstname'";
+$query=mysqli_query($conn,$emailquery);
+
+$emailcount=mysqli_num_rows($query);
+
+if($emailcount>0)
+{
+    echo"Email already exist";
+}
+else
+{
+    if($password===$conpassword)
+    {
+        $insertquery="insert into registration(id,firstname, lastname, email, pswd, cpswd) values('$fname','$lname','$email','$pass','$cpass') ";
+
+
+        $iquery=mysqli_query($conn,$insertquery);
+
+       if($iquery)
+       {
+       echo"Insertion successfull";
+       
+    }else{
+        echo"Insertion failed";
+    }
+
+    }
+    else {
+        echo"Password doesnot matched";
+    }
+}
+
+
+}
+$_SESSION();
+
+
+?> -->
+
+<?php
+
+
+$servername="localhost";
+$username="root";
+$password="";
+$conn=mysqli_connect($servername,$username,$password);
+echo"Connection was successfull";
+
+if(!$conn)
+{
+    die("connection to this datadase failed due to" 
+    .mysqli_connect_error());
+}
+$firstname= mysqli_real_escape_string($conn, $_POST['fname']);
+$lastname=mysqli_real_escape_string($conn, $_POST['lname']);
+$email=mysqli_real_escape_string($conn, $_POST['Email']);
+$password=mysqli_real_escape_string($conn, $_POST['psw']);
+$conpassword=mysqli_real_escape_string($conn, $_POST['cpsw']);
+$pass=password_hash($password,PASSWORD_BCRYPT);
+$cpass=password_hash($conpassword,PASSWORD_BCRYPT);
+$insertquery="insert into registration(firstname, lastname, email, pswd, cpswd) values('$fname','$lname','$email','$pass','$cpass') ";
+echo $insertquery;
+
+?>
+<?php
+
+
+$servername="localhost";
+$username="root";
+$password="";
+$conn=mysqli_connect($servername,$username,$password);
+echo"Connection was successfull";
+
+if(!$conn)
+{
+    die("connection to this datadase failed due to" 
+    .mysqli_connect_error());
+}
+$firstname= mysqli_real_escape_string($conn, $_POST['fname']);
+$lastname=mysqli_real_escape_string($conn, $_POST['lname']);
+$email=mysqli_real_escape_string($conn, $_POST['Email']);
+$password=mysqli_real_escape_string($conn, $_POST['psw']);
+$conpassword=mysqli_real_escape_string($conn, $_POST['cpsw']);
+$pass=password_hash($password,PASSWORD_BCRYPT);
+$cpass=password_hash($conpassword,PASSWORD_BCRYPT);
+$insertquery="insert into registration(firstname, lastname, email, pswd, cpswd) values('$fname','$lname','$email','$pass','$cpass') ";
+echo $insertquery;
+
+?>
+
+
+
+footer{
+  height:200px;  
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  background: #111;
+}
+footer .content{
+  max-width: 1350px;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+footer .content a{
+  color: #fff;
+}
+footer .content .box{
+  width: 33%;
+  transition: all 0.4s ease;
+}
+footer .content .topic{
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 16px;
+
+}
+
+
+
+footer .content .middle{
+  padding-left: 80px;
+}
+footer .content .middle a{
+  line-height: 32px;
+}
+
+
+
+
+
+
+@media (max-width:950px){
+  footer .content .box{
+    width: 50%;
+  }
+  .content .right{
+    margin-top: 40px;
+  }
+}
+@media (max-width:560px){
+  footer{
+    position: relative;
+  }
+  footer .content .box{
+    width: 100%;
+    margin-top: 30px;
+  }
+  footer .content .middle{
+    padding-left: 0;
+  }
+}
+   $pass=password_hash($password,PASSWORD_BCRYPT);
+    $cpass=password_hash($conpassword,PASSWORD_BCRYPT);
